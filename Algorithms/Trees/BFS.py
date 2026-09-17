@@ -8,18 +8,18 @@ class Node:
 
 # Tree Traversal using BFS
 def BFS(root):
-    visited = []
     queue = collections.deque()
-    queue.appendleft(root)
+    visited = []
+    queue.append(root)
 
     while queue:
-        queueLenght = len(queue)
-        for i in range(queueLenght):
+        for i in range(len(queue)):
             node = queue.pop()
 
             if node:
-                queue.appendleft(node.left)
+                print(node.val)
+                queue.appendleft(node.right)
                 queue.appendleft(node.right)
                 visited.append(node)
 
-    return visited 
+    return visited
