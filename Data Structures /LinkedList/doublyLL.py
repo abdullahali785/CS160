@@ -180,6 +180,18 @@ class doublylinkedlist:
             print(current.data, end=' <-> ' if current.prev else "\n")
             current = current.prev
 
+    def search(self, data, crr=None): # Recursive
+        if crr is None:
+            crr = self.head
+
+        if crr.data == data:
+            return crr
+
+        if crr == self.tail:
+            raise ValueError(f'{data} not in list')
+        
+        self.search(data, crr=crr.next)
+
 
 dll = doublylinkedlist()
 dll.append(1)
