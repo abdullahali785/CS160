@@ -10,18 +10,20 @@ class Node:
 
 # Level by level
 def BFS(root):
-    queue = collections.deque()
+    if not root:
+        return []
+    
+    queue = collections.deque([root])
     visited = []
-    queue.append(root)
 
     while queue:
         for i in range(len(queue)):
-            node = queue.pop()
+            node = queue.popleft()
 
             if node:
                 print(node.val)
-                queue.appendleft(node.right)
-                queue.appendleft(node.right)
+                queue.append(node.left)
+                queue.append(node.right)
                 visited.append(node)
 
     return visited
@@ -29,17 +31,19 @@ def BFS(root):
 
 # Node by node
 def BFS(root):
-    queue = collections.deque()
+    if not root:
+        return []
+    
+    queue = collections.deque([root])
     visited = []
-    queue.append(root)
 
     while queue:
-        node = queue.pop()
+        node = queue.popleft()
 
         if node:
             print(node.val)
-            queue.appendleft(node.right)
-            queue.appendleft(node.right)
+            queue.append(node.left)
+            queue.append(node.right)
             visited.append(node)
 
     return visited
